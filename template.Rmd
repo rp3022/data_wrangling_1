@@ -4,6 +4,7 @@ output: github_document
 ---
 ```{r, echo=FALSE}
 library(tidyverse)
+library(readxl)
 ```
 
 ## Data import CSV
@@ -11,4 +12,18 @@ library(tidyverse)
 litters_df=read_csv ("data/FAS_litters.csv")
 litters_df=janitor::clean_names(litters_df)
 ```
+
+```{r, eval=FALSE}
+skimr::skim(litters_df)
+```
+```{r, eval=FALSE}
+read_csv("data/FAS_litters.csv", na=c("", "NA", "999", "88"), skip=2)
+```
+
+##importing other file type
+```{r}
+mlb_df=read_excel("data/mlb11.xlsx")
+```
+
+
 
